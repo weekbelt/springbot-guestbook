@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -25,7 +26,7 @@ class GuestbookRepositoryTest {
     @Autowired
     private GuestbookRepository guestbookRepository;
 
-    @BeforeEach
+    @Test
     void insertDummies() {
         IntStream.rangeClosed(1, 300).forEach(i -> {
             Guestbook guestbook = Guestbook.builder()
