@@ -23,11 +23,28 @@
             <tr th:each="dto : ${result.dtoList}">
                 <th scope="row">[[${dto.gno}]]</th>
                 <td>[[${dto.title}]]</td>
-                <td>[[${dto.writer]]</td>
+                <td>[[${dto.writer}]]</td>
                 <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
             </tr>
             </tbody>
         </table>
+
+        <ul class="pagination h-100 justify-content-center align-items-center">
+            <li class="page-item" th:if="${result.prev}">
+                <a th:href="@{/guestbook/list(page=${result.start-1})}" class="page-link" tabindex="-1">Previous</a>
+            </li>
+
+            <li th:class=" 'page-item ' + ${result.page == page ? 'active' : ''}" th:each="page: ${result.pageList}">
+                <a class="page-link" th:href="@{/guestbook/list(page=${page})}" tabindex="-1">
+                    [[${page}]]
+                </a>
+            </li>
+
+            <li class="page-item" th:if="${result.next}">
+                <a th:href="@{/guestbook/list(page=${result.end + 1})}" class="page-link">Next</a>
+            </li>
+        </ul>
+
     </th:block>
 </th:block>
 </body>

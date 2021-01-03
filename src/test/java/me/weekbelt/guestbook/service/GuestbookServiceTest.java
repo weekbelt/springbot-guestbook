@@ -2,12 +2,11 @@ package me.weekbelt.guestbook.service;
 
 import me.weekbelt.guestbook.dto.GuestbookDTO;
 import me.weekbelt.guestbook.dto.PageRequestDTO;
+import me.weekbelt.guestbook.dto.PageResultDTO;
 import me.weekbelt.guestbook.entity.Guestbook;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class GuestbookServiceTest {
